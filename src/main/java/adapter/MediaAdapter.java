@@ -12,7 +12,7 @@ public class MediaAdapter implements MediaPlayer {
 		}
 	}
 
-	@Override
+//	@Override
 	public void play(String audioType, String fileName) {
 		if (audioType.equalsIgnoreCase("vlc")) {
 			advancedMusicPlayer.playVlc(fileName);
