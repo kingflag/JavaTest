@@ -18,6 +18,9 @@ public class FileChannelTransfer {
 			}
 			// RandomAccessFile fromFile = new RandomAccessFile("fromFile.txt",
 			// "rw");
+			
+			long start = System.currentTimeMillis();
+			
 			RandomAccessFile fromFile = new RandomAccessFile("fromFile.txt", "rw");
 
 			FileChannel fromChannel = fromFile.getChannel();
@@ -30,7 +33,12 @@ public class FileChannelTransfer {
 
 			long count = fromChannel.size();
 
-			toChannel.transferFrom(fromChannel, count, position);
+			fromChannel.transferTo(position, count, toChannel);
+
+			
+			long end = System.currentTimeMillis();
+			long diff = end - start;
+			System.out.println("读取所用时间:" + diff);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
