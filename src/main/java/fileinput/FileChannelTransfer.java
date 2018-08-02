@@ -21,10 +21,12 @@ public class FileChannelTransfer {
 			
 			long start = System.currentTimeMillis();
 			
+			@SuppressWarnings("resource")
 			RandomAccessFile fromFile = new RandomAccessFile("fromFile.txt", "rw");
 
 			FileChannel fromChannel = fromFile.getChannel();
 
+			@SuppressWarnings("resource")
 			RandomAccessFile toFile = new RandomAccessFile("toFile.txt", "rw");
 
 			FileChannel toChannel = toFile.getChannel();
