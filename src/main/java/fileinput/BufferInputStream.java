@@ -8,7 +8,7 @@ import java.io.IOException;
 public class BufferInputStream {
 	public static void main(String[] args) {
 		try {
-			File file = new File("D:\\test\\log\\TestWeb.log.2018-06-28.log");
+			File file = new File("fromFile.txt");
 			if (!file.exists()) {
 				throw new IOException("文件不存在");
 			}
