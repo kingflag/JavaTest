@@ -10,18 +10,18 @@ public class BufferInputStream {
 		try {
 			File file = new File("D:\\test\\log\\TestWeb.log.2018-06-28.log");
 			if (!file.exists()) {
-				throw new IOException("ÎÄ¼ş²»´æÔÚ");
+				throw new IOException("æ–‡ä»¶ä¸å­˜åœ¨");
 			}
 			BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
 			long start = System.currentTimeMillis();
 			byte byteData;
 			while ((byteData = (byte) bis.read()) != -1) {
-				System.out.println((char) byteData);
+				System.out.print((char) byteData);
 			}
 			long end = System.currentTimeMillis();
 			long diff = end - start;
 
-			System.out.println("¶ÁÈ¡Ê±¼ä£º" + diff);
+			System.out.println("è¯»å–æ‰€ç”¨æ—¶é—´:" + diff);
 			bis.close();
 		} catch (Exception e) {
 			e.printStackTrace();
