@@ -39,16 +39,16 @@ public class SelectorExample {
 					client.register(selector, SelectionKey.OP_READ);
 					System.out.println("The new connection is accepted from the client: " + client);
 				} else if (ky.isReadable()) {
-					System.out.println("Start read method");
+//					System.out.println("Start read method");
 					SocketChannel client = (SocketChannel) ky.channel();
 //					ThreadPool.execute(new RequestHandler(client, selector));
 					// TODO keep-alive
-					ky.interestOps(ky.interestOps() & ~SelectionKey.OP_READ);// 目前一个请求对应一个socket连接，没有实现keep-alive
+//					ky.interestOps(ky.interestOps() & ~SelectionKey.OP_READ);// 目前一个请求对应一个socket连接，没有实现keep-alive
 					// System.out.println("End read method");
+					client.register(selector, SelectionKey.OP_WRITE, "");
 				} else if (ky.isWritable()) {
 					System.out.println("返回成功");
 					SocketChannel client = (SocketChannel) ky.channel();
-
 					String response = (String) ky.attachment();
 					ByteBuffer byteBuffer = ByteBuffer.wrap(response.getBytes());
 					if (byteBuffer.hasRemaining()) {
