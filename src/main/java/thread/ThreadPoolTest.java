@@ -12,8 +12,8 @@ public class ThreadPoolTest {
 		for (int i = 0; i < 15; i++) {
 			MyTask myTask = new MyTask(i);
 			executor.execute(myTask);
-			System.out.println("Ïß³Ì³ØÖÐÏß³ÌÊýÄ¿£º" + executor.getPoolSize() + "£¬¶ÓÁÐÖÐµÈ´ýÖ´ÐÐµÄÈÎÎñÊýÄ¿£º" + executor.getQueue().size()
-					+ "£¬ÒÑÖ´ÐÐÍæ±ðµÄÈÎÎñÊýÄ¿£º" + executor.getCompletedTaskCount());
+			System.out.println("çº¿ç¨‹æ± ä¸­çº¿ç¨‹æ•°ç›®ï¼š" + executor.getPoolSize() + "ï¼Œé˜Ÿåˆ—ä¸­ç­‰å¾…æ‰§è¡Œçš„ä»»åŠ¡æ•°ç›®ï¼š" + executor.getQueue().size()
+					+ "ï¼Œå·²æ‰§è¡ŒçŽ©åˆ«çš„ä»»åŠ¡æ•°ç›®ï¼š" + executor.getCompletedTaskCount());
 		}
 		executor.shutdown();
 	}
@@ -28,13 +28,13 @@ class MyTask implements Runnable {
 
 	// @Override
 	public void run() {
-		System.out.println("ÕýÔÚÖ´ÐÐtask " + taskNum);
+		System.out.println("æ­£åœ¨æ‰§è¡Œtask " + taskNum);
 		try {
 			Thread.currentThread();
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("task " + taskNum + "Ö´ÐÐÍê±Ï");
+		System.out.println("task " + taskNum + "æ‰§è¡Œå®Œæ¯•");
 	}
 }
