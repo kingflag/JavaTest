@@ -22,7 +22,7 @@ public class Account {
         this.age = age;
     }
 
-    public double getAge(String name) {
+    public /*synchronized*/ double getAge(String name) {
         return this.age;
     }
 
