@@ -42,17 +42,33 @@ public class BitCoinUtil {
 	}
 
 	/**
-	 * 通过私钥获取ECKey
+	 * 通过十六进制私钥获取ECKey
 	 * 
 	 * @param priKey
 	 * @return
 	 */
-	public static ECKey getECKeyFromPriKey(String priKey) {
-		ECKey ecKey = ECKey.fromPrivate(NumberUtils.createBigInteger(priKey));
+	public static ECKey getECKeyFromHexPriKey(String hexPriKey) {
+		ECKey ecKey = ECKey.fromPrivate(NumberUtils.createBigInteger(hexPriKey));
 		return ecKey;
 	}
-	
 
+	/**
+	 * 通过私钥拿到eckey
+	 * 
+	 * @param prikey
+	 * @return
+	 */
+	public static ECKey getECkey(String prikey) {
+		ECKey key = DumpedPrivateKey.fromBase58(getParams(), prikey).getKey();
+		return key;
+	}
+
+	/**
+	 * 通过ECKey获取钱包地址
+	 * 
+	 * @param ecKey
+	 * @return
+	 */
 	public static String getPubKeyFrom(ECKey ecKey) {
 		NetworkParameters params = getParams();
 		return ecKey.toAddress(params).toBase58().toString();
@@ -106,12 +122,6 @@ public class BitCoinUtil {
 																	// Import
 																	// Format)
 		System.err.println(privateKeyAsWiF + "==========" + s);
-	}
-
-	// 通过私钥拿到eckey
-	public static ECKey getECkey(String prikey) {
-		ECKey key = DumpedPrivateKey.fromBase58(getParams(), prikey).getKey();
-		return key;
 	}
 
 	// 通过助记词导入新钱包
@@ -189,7 +199,7 @@ public class BitCoinUtil {
 	}
 
 	public static File getBLockFile() {
-		File file = new File("/tmp/bitcoin-blocks");
+		File file = new File("D://temp//blocks_tempbck");
 		if (!file.exists()) {
 			try {
 				boolean newFile = file.createNewFile();
@@ -284,7 +294,7 @@ public class BitCoinUtil {
 	}
 
 	// 通过speed 获取钱包
-	public static Wallet getFromSpeed(String seedCode) {
+	public static Wallet getFromSeed(String seedCode) {
 		NetworkParameters params = getParams();
 		DeterministicSeed seed;
 		try {
