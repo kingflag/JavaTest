@@ -51,6 +51,7 @@ public class BitCoinUtil {
 		ECKey ecKey = ECKey.fromPrivate(NumberUtils.createBigInteger(priKey));
 		return ecKey;
 	}
+	
 
 	public static String getPubKeyFrom(ECKey ecKey) {
 		NetworkParameters params = getParams();

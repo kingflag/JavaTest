@@ -52,6 +52,8 @@ public class BitCoinHelloWorld implements WalletCoinsReceivedEventListener {
 
 		System.out.println("Private key is: " + key.getPrivateKeyEncoded(params).toString());
 
+		System.out.println("Private Hex key is: " + key.getPrivateKeyAsHex());
+		
 		Wallet wallet = new Wallet(params);
 		wallet.importKey(key);
 
