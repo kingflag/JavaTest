@@ -9,16 +9,16 @@ public class Client implements CSCallBack {
 	}
 
 	public void sendMsg(final String msg) {
-		System.out.println("¿Í»§¶Ë£º·¢ËÍµÄÏûÏ¢Îª£º" + msg);
+		System.out.println("å®¢æˆ·ç«¯ï¼šå‘é€çš„æ¶ˆæ¯ä¸ºï¼š" + msg);
 		new Thread(new Runnable() {
 			public void run() {
 				server.getClientMsg(Client.this, msg);
 			}
 		}).start();
-		System.out.println("¿Í»§¶Ë£ºÒì²½·¢ËÍ³É¹¦");
+		System.out.println("å®¢æˆ·ç«¯ï¼šå¼‚æ­¥å‘é€æˆåŠŸ");
 	}
 
 	public void process(String status) {
-		System.out.println("¿Í»§¶Ë£º·şÎñ¶Ë»Øµ÷×´Ì¬Îª£º" + status);
+		System.out.println("å®¢æˆ·ç«¯ï¼šæœåŠ¡ç«¯å›è°ƒçŠ¶æ€ä¸ºï¼š" + status);
 	}
 }

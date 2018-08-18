@@ -3,15 +3,15 @@ package callback;
 public class Server {
 
 	public void getClientMsg(CSCallBack csCallBack, String msg) {
-		System.out.println("·şÎñ¶Ë£º·şÎñ¶Ë½ÓÊÕµ½¿Í»§¶Ë·¢ËÍµÄÏûÏ¢Îª:" + msg);
+		System.out.println("æœåŠ¡ç«¯ï¼šæœåŠ¡ç«¯æ¥æ”¶åˆ°å®¢æˆ·ç«¯å‘é€çš„æ¶ˆæ¯ä¸º:" + msg);
 
-		// Ä£Äâ·şÎñ¶ËĞèÒª¶ÔÊı¾İ´¦Àí
+		// æ¨¡æ‹ŸæœåŠ¡ç«¯éœ€è¦å¯¹æ•°æ®å¤„ç†
 		try {
 			Thread.sleep(5 * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("·şÎñ¶Ë:Êı¾İ´¦Àí³É¹¦£¬·µ»Ø³É¹¦×´Ì¬ 200");
+		System.out.println("æœåŠ¡ç«¯:æ•°æ®å¤„ç†æˆåŠŸï¼Œè¿”å›æˆåŠŸçŠ¶æ€ 200");
 		String status = "200";
 		csCallBack.process(status);
 	}
